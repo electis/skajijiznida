@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление статей на skajijiznida.ru</title>
+</head>
+<body>
+<h1>Публикация статей на сайт <a href="http://skajijiznida.ru" target="_blank">skajijiznida.ru</a></h1>
+<form method="get" action="/admin/">
+    <button>Редактировать статьи</button>
+</form>
+<form method="post" style="margin-top: 20px;">
+    {% csrf_token %}
+    <button>Опубликовать статьи</button>
+</form>
+<h2>Новые статьи</h2>
+{% for article in new %}
+    <h4>{{ article.date }} - {{ article.section }} - {{ article.header }}</h4>
+{% endfor %}
+<h2>Опубликованные статьи</h2>
+{% for article in published %}
+    <h4>{{ article.date }} - {{ article.section }} - {{ article.header }}</h4>
+{% endfor %}
+</body>
+</html>
